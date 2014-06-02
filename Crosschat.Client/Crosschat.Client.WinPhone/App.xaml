@@ -1,0 +1,61 @@
+﻿<Application
+    x:Class="Crosschat.Client.WinPhone.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:w="clr-namespace:Crosschat.Client.WinPhone">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:Crosschat.Client.WinPhone" x:Key="LocalizedStrings"/>
+        
+        <DataTemplate x:Key="MessageDataTemplate">
+            <w:MessageDataTemplateSelector Content="{Binding BindingContext}">
+                <w:MessageDataTemplateSelector.MyMessageTemplate>
+                    <DataTemplate>
+                        <Grid Margin="30,35,5,0" Width="420">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneAccentBrush}" Grid.RowSpan="2"/>
+                            <TextBlock Text="{Binding Path=Text}" Margin="5" FontSize="26" />
+                            <TextBlock Text="{Binding Path=Timestamp, StringFormat='ddd, HH:mm'}" Margin="5,0,0,5" Foreground="#CECECE" Grid.Row="1"/>
+                            <Path Data="m 0,0 l 16,0 l 0,16 l -16,-16"
+                                  Fill="{StaticResource PhoneAccentBrush}"
+                                  Margin="0,-2,5,0" HorizontalAlignment="Right" Grid.Row="2"/>
+                        </Grid>
+                    </DataTemplate>
+                </w:MessageDataTemplateSelector.MyMessageTemplate>
+                <w:MessageDataTemplateSelector.OpponentTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5,10,30,0" Width="420" Opacity="0.7">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneAccentBrush}" Grid.Row="1" Grid.RowSpan="2"/>
+                            <TextBlock Text="{Binding Path=Text}" Margin="5" FontSize="26" Grid.Row="1" />
+                            <TextBlock Text="{Binding Path=Timestamp, StringFormat='ddd, HH:mm'}" Margin="5,0,0,5" Foreground="#CECECE" Grid.Row="2"/>
+                            <Path Data="m 0,0 l 0,16 l 16,0 l -16,-16"
+                                  Fill="{StaticResource PhoneAccentBrush}"
+                                  Margin="5,-2,0,0" HorizontalAlignment="Left" Grid.Row="0"/>
+                        </Grid>
+                    </DataTemplate>
+                </w:MessageDataTemplateSelector.OpponentTemplate>
+            </w:MessageDataTemplateSelector>
+        </DataTemplate>
+        
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
