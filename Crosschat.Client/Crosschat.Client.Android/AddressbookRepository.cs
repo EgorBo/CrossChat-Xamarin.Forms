@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Android.Provider;
 using Crosschat.Client.Droid;
@@ -41,6 +42,18 @@ namespace Crosschat.Client.Droid
                     while (cursor.MoveToNext());
                 }
             });
+
+            if (!contactList.Any())
+            {
+                return new[]
+                        {
+                            new Contact { Name = "Egor Bogatov", Number = "+01231"},
+                            new Contact { Name = "Ian Gillan", Number = "+01232"},
+                            new Contact { Name = "Freddie Mercury", Number = "+01233"},
+                            new Contact { Name = "David Gilmour", Number = "+01234"},
+                            new Contact { Name = "Steve Ballmer", Number = "+01235"},
+                        };
+            }
 
             return contactList.ToArray();
         }

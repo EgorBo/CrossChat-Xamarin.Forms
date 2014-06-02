@@ -26,13 +26,16 @@ namespace Crosschat.Client.Views
                     var timestampLabel = new Label();
                     timestampLabel.SetBinding(Label.TextProperty, new Binding("Timestamp", stringFormat: "[{0:HH:mm}]"));
                     timestampLabel.TextColor = Color.Silver;
+                    timestampLabel.Font = Font.SystemFontOfSize(20);
 
                     var authorLabel = new Label();
                     authorLabel.SetBinding(Label.TextProperty, new Binding("SenderContactViewModel.Name", stringFormat: "{0}: "));
                     authorLabel.TextColor = Color.Yellow;
+                    authorLabel.Font = Font.SystemFontOfSize(20);
 
                     var messageLabel = new Label();
                     messageLabel.SetBinding(Label.TextProperty, new Binding("Text"));
+                    messageLabel.Font = Font.SystemFontOfSize(20);
 
                     var view = new MessageViewCell
                         {

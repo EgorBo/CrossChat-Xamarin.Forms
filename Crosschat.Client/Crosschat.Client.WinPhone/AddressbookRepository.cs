@@ -6,7 +6,6 @@ using Microsoft.Phone.UserData;
 using Xamarin.Forms;
 using Contact = Crosschat.Client.Model.Contact;
 
-
 [assembly: Dependency(typeof(AddressbookRepository))]
 
 namespace Crosschat.Client.WinPhone
@@ -17,11 +16,28 @@ namespace Crosschat.Client.WinPhone
         {
             var taskCompletionSource = new TaskCompletionSource<Contact[]>();
             var contacts = new Contacts();
-            contacts.SearchCompleted += (sender, args) => 
-                taskCompletionSource.SetResult(args.Results
+            contacts.SearchCompleted += (sender, args) =>
+            {
+                var addressbook = args.Results
                     .Where(i => !string.IsNullOrEmpty(i.DisplayName))
                     .Select(ToContact)
-                    .ToArray());
+                    .ToArray();
+
+                //if there is no any contact (run in emulator?) - add several fakes
+                if (!addressbook.Any())
+                {
+                    addressbook = new[]
+                        {
+                            new Contact { Name = "Egor Bogatov", Number = "+01231"},
+                            new Contact { Name = "Ian Gillan", Number = "+01232"},
+                            new Contact { Name = "Freddie Mercury", Number = "+01233"},
+                            new Contact { Name = "David Gilmour", Number = "+01234"},
+                            new Contact { Name = "Steve Ballmer", Number = "+01235"},
+                        };
+                }
+
+                taskCompletionSource.SetResult(addressbook);
+            };
             contacts.SearchAsync(string.Empty, FilterKind.DisplayName, null);
 
             return taskCompletionSource.Task;
@@ -34,7 +50,7 @@ namespace Crosschat.Client.WinPhone
             {
                 phoneNumber = contact.PhoneNumbers.First().PhoneNumber;
             }
-            return new Contact {Name = contact.DisplayName, Number = phoneNumber};
+            return new Contact { Name = contact.DisplayName, Number = phoneNumber };
         }
     }
 }
