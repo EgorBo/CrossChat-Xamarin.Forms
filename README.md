@@ -1,4 +1,4 @@
-CrossChat-Xamarin.Forms
-=======================
+CrossChat
+============
 
-A chat application implemented using Xamarin.Forms and MVVM
+A chat application sample built using Xamarin.Forms with MVVM approach
