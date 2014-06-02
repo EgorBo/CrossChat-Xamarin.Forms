@@ -10,8 +10,11 @@ namespace Crosschat.Client.Views
         {
             Title = "Contacts";
 
-            var label = new Label();
-            label.SetBinding(Label.TextProperty, new Binding("ContactsCount", stringFormat: "{0} contacts"));
+            var contactsCountLabel = new Label();
+            contactsCountLabel.SetBinding(Label.TextProperty, new Binding("Contacts.Count", stringFormat: "{0} contacts."));
+
+            var tipLabel = new Label();
+            tipLabel.Text = "Select a contact to start conversation";
 
             var listView = new BindableListView
                 {
@@ -43,7 +46,8 @@ namespace Crosschat.Client.Views
                     Children =
                         {
                             contactsLoadingIndicator,
-                            label,
+                            contactsCountLabel,
+                            tipLabel,
                             listView
                         }
                 };

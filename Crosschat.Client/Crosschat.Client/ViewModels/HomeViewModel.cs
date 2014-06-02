@@ -15,7 +15,6 @@ namespace Crosschat.Client.ViewModels
         private ObservableCollection<ConversationViewModel> _conversations;
         private readonly IAddressbookRepository _addressbookRepository;
         private readonly MessageService _messageService;
-        private int _contactsCount;
         private ObservableCollection<ContactViewModel> _contacts;
 
         public HomeViewModel()
@@ -25,12 +24,6 @@ namespace Crosschat.Client.ViewModels
             Conversations = new ObservableCollection<ConversationViewModel>();
             GroupedContacts = new ObservableCollection<NamedObservableCollection<ContactViewModel>>();
             LoadContacts();
-        }
-
-        public int ContactsCount
-        {
-            get { return _contactsCount; }
-            set { SetProperty(ref _contactsCount, value); }
         }
 
         public ObservableCollection<NamedObservableCollection<ContactViewModel>> GroupedContacts
@@ -100,7 +93,6 @@ namespace Crosschat.Client.ViewModels
             Contacts = pocoContacts
                 .Where(c => !string.IsNullOrEmpty(c.Name))
                 .Select(c => new ContactViewModel(c)).ToObservableCollection();
-            ContactsCount = pocoContacts.Count;
             GroupedContacts = Contacts.ToNamedObservableCollections(g => g.Name[0].ToString());
 
             var lastContactVm = Contacts.Last();

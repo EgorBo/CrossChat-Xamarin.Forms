@@ -35,7 +35,6 @@ namespace Crosschat.Client.Views
         {
             //await Task.Delay(2000); //simulate connecting to a server
             await Navigation.PushAsync(new RegistrationPage(new RegistrationViewModel()));
-            //await Navigation.PushAsync(new ContactsPage(HomeViewModel.Instance));
             base.OnAppearing();
         }
     }

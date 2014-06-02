@@ -41,7 +41,6 @@ namespace Crosschat.Client.ViewModels
 
         protected override void OnShown()
         {
-            Number = "1234";//TODO: remove
             SelectedCountry = Countries.First();
             base.OnShown();
         }

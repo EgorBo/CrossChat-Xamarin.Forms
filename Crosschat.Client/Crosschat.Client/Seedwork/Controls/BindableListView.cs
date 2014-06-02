@@ -24,6 +24,7 @@ namespace Crosschat.Client.Seedwork.Controls
             if (e.Item != null && ItemClickedCommand != null && ItemClickedCommand.CanExecute(e))
             {
                 ItemClickedCommand.Execute(e.Item);
+                SelectedItem = null; //we don't need the SelectedItem if we have binding to ItemClickedCommand
             }
         }
     }

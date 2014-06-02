@@ -1,17 +1,12 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
 
 namespace Crosschat.Client.Droid
 {
-    [Activity(Label = "Crosschat.Client", MainLauncher = true)]
+    [Activity(Label = "Crosschat.Client", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AndroidActivity
     {
         protected override void OnCreate(Bundle bundle)
