@@ -67,6 +67,18 @@ namespace Crosschat.Client.iOS
                     contacts.Add(new Contact { Name = displayName, Number = number });   
                 }
             }
+            if (!contacts.Any())
+            {
+                return new[]
+                        {
+                            new Contact { Name = "Egor Bogatov", Number = "+01231"},
+                            new Contact { Name = "Ian Gillan", Number = "+01232"},
+                            new Contact { Name = "Freddie Mercury", Number = "+01233"},
+                            new Contact { Name = "David Gilmour", Number = "+01234"},
+                            new Contact { Name = "Steve Ballmer", Number = "+01235"},
+                        };
+            }
+
             return contacts.ToArray();
         }
     }
