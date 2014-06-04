@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA4BEF7E-9220-4435-BC8B-F6868AD3E252}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Abo.Server.Infrastructure</RootNamespace>
+    <AssemblyName>Abo.Server.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\libs\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\EntityFramework.6.0.1-alpha1-20819\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\EntityFramework.6.0.1-alpha1-20819\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\..\..\libs\ImageResizer.3.4.0\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\libs\protobuf-net.2.0.0.640\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.0.3, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\Supersockets\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.6.0.3, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\Supersockets\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.0.3, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\Supersockets\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\..\..\libs\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileSystem\FileStorage.cs" />
+    <Compile Include="GlobalConfig.cs" />
+    <Compile Include="HardcodedSettings.cs" />
+    <Compile Include="InfrastructureInitializator.cs" />
+    <Compile Include="InfrastructureModule.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\NLogAdapter.cs" />
+    <Compile Include="Persistence\EF\DatabaseInitializer.cs" />
+    <Compile Include="Persistence\EF\Mappings\PlayerEntityConfiguration.cs" />
+    <Compile Include="Persistence\EF\Mappings\PublicMessageEntityConfiguration.cs" />
+    <Compile Include="Persistence\EF\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\EF\Repositories\PublicMessageRepository.cs" />
+    <Compile Include="Persistence\EF\Transaction\Transaction.cs" />
+    <Compile Include="Persistence\EF\Transaction\TransactionFactory.cs" />
+    <Compile Include="Persistence\EF\UnitOfWork.cs" />
+    <Compile Include="Persistence\EF\UnitOfWorkFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Push\WindowsPhonePushSender.cs" />
+    <Compile Include="Serialization\Implementations\BinaryFormatterDtoSerializer.cs" />
+    <Compile Include="Serialization\Implementations\AesProtobufDtoSerializer.cs" />
+    <Compile Include="Serialization\Implementations\JsonDtoSerializer.cs" />
+    <Compile Include="Serialization\Implementations\ProtobufDtoSerializer.cs" />
+    <Compile Include="Serialization\Implementations\XmlDtoSerializer.cs" />
+    <Compile Include="Serialization\Implementations\ZippedProtobufDtoSerializer.cs" />
+    <Compile Include="Transport\AboReceiveFilter.cs" />
+    <Compile Include="Transport\AboSession.cs" />
+    <Compile Include="Transport\AboSocketServer.cs" />
+    <Compile Include="Transport\AboCommandBase.cs" />
+    <Compile Include="Transport\Commands\ResponseCommand.cs" />
+    <Compile Include="Transport\Commands\PingCommand.cs" />
+    <Compile Include="Transport\Commands\RequestCommand.cs" />
+    <Compile Include="Transport\TransportPerformanceMeasurer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Persistence\EF\Migrations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Abo.Server.Application.DataTransferObjects\Abo.Server.Application.DataTransferObjects.csproj">
+      <Project>{B3FA38D2-EE74-4EEE-BE94-351A0FF3C057}</Project>
+      <Name>Abo.Server.Application.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Abo.Server.Infrastructure.Protocol\Abo.Server.Infrastructure.Protocol.csproj">
+      <Project>{A0ABA262-9090-46C1-A283-8A926806587A}</Project>
+      <Name>Abo.Server.Infrastructure.Protocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Abo.Utils\Abo.Utils.csproj">
+      <Project>{be0bed22-5caf-4b11-a3b8-2f9f86a059f4}</Project>
+      <Name>Abo.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abo.Server.Application\Abo.Server.Application.csproj">
+      <Project>{C6099ED1-33AF-4F0C-A9AC-01E1092D30D3}</Project>
+      <Name>Abo.Server.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abo.Server.Domain\Abo.Server.Domain.csproj">
+      <Project>{9BFC0690-D444-4AC9-86C7-C33BE28F8212}</Project>
+      <Name>Abo.Server.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

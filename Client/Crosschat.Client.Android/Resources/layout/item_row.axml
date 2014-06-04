@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip">
+<!-- ListRow Left side Thumbnail image -->
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="3dip">
+        <ImageView
+            android:id="@+id/tvImage"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/empty_contact" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_marginLeft="2dip"
+        android:layout_centerVertical="false"
+        android:paddingBottom="0dip"
+        android:text="Ivan Ivanov"
+        android:textColor="#040404"
+        android:textSize="25dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+<!-- Weather Information-->
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvName"
+        android:layout_alignLeft="@+id/tvName"
+        android:paddingTop="0dip"
+        android:layout_centerHorizontal="true"
+        android:text="+375(49)12345678"
+        android:textColor="#343434"
+        android:textSize="15dip" />
+</RelativeLayout>

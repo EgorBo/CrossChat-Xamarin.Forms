@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B665C38-2C1F-4B21-947B-ED54E5C4ABBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Crosschat.Server.Application.DataTransferObjects</RootNamespace>
+    <AssemblyName>Crosschat.Server.Application.DataTransferObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="Requests\1.request-response.snippet" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\AuthenticationResponseType.cs" />
+    <Compile Include="Enums\BanResponseType.cs" />
+    <Compile Include="Enums\DevoiceResponseType.cs" />
+    <Compile Include="Enums\RegistrationResponseType.cs" />
+    <Compile Include="Enums\UserRoleEnum.cs" />
+    <Compile Include="Messages\BanNotification.cs" />
+    <Compile Include="Messages\BaseDto.cs" />
+    <Compile Include="Messages\DevoiceNotification.cs" />
+    <Compile Include="Messages\JoinedUserInfo.cs" />
+    <Compile Include="Messages\ModershipGrantedInfo.cs" />
+    <Compile Include="Messages\ModershipRemovedInfo.cs" />
+    <Compile Include="Messages\PropertyValuePair.cs" />
+    <Compile Include="Messages\PublicMessageDto.cs" />
+    <Compile Include="Messages\UserDto.cs" />
+    <Compile Include="Messages\UserPropertiesChangedInfo.cs" />
+    <Compile Include="Messages\YouAreDevoicedNotification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AddToBlacklistRequest.cs" />
+    <Compile Include="Requests\AddToFriendsRequest.cs" />
+    <Compile Include="Requests\AuthenticationRequest.cs" />
+    <Compile Include="Requests\BanRequest.cs" />
+    <Compile Include="Requests\ChangePhotoRequest.cs" />
+    <Compile Include="Requests\DeactivationRequest.cs" />
+    <Compile Include="Requests\DevoiceRequest.cs" />
+    <Compile Include="Requests\GetOnlineUsersRequest.cs" />
+    <Compile Include="Requests\GetUserDetailsRequest.cs" />
+    <Compile Include="Requests\GrantModershipRequest.cs" />
+    <Compile Include="Requests\LastMessageRequest.cs" />
+    <Compile Include="Requests\PublicMessageRequest.cs" />
+    <Compile Include="Requests\RegistrationRequest.cs" />
+    <Compile Include="Requests\RemoveFromBlacklistRequest.cs" />
+    <Compile Include="Requests\RemoveFromFriendsRequest.cs" />
+    <Compile Include="Requests\RemoveModershipRequest.cs" />
+    <Compile Include="Requests\RequestBase.cs" />
+    <Compile Include="Requests\ResetPhotoRequest.cs" />
+    <Compile Include="Requests\ResponseBase.cs" />
+    <Compile Include="Requests\SendImageRequest.cs" />
+    <Compile Include="Requests\UserBlacklistRequest.cs" />
+    <Compile Include="Requests\UserFriendsRequest.cs" />
+    <Compile Include="Requests\UsersSearchRequest.cs" />
+    <Compile Include="Utils\RequestsHandler.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
