@@ -21,7 +21,7 @@ namespace Crosschat.Server.Application.Services
 
         /// <summary>
         /// </summary>
-        public RegistrationResponse RegisterNewPlayer(ISession session, RegistrationRequest request)
+        public RegistrationResponse RegisterNewUser(ISession session, RegistrationRequest request)
         {
             var response = request.CreateResponse(new RegistrationResponse { Result = RegistrationResponseType.Success });
             User user = null;

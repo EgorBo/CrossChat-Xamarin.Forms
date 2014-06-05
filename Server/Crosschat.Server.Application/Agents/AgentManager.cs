@@ -25,9 +25,8 @@ namespace Crosschat.Server.Application.Agents
                 .Select(i => ServiceLocator.Resolve(i) as ScheduledAgentBase)
                 .ToDictionary(i => i, i => DateTime.Now);
 
-            Logger.Warning("Executing all agents on launch...");
             _jobs.Where(i => !i.Key.DontRunOnStart).ForEach(i => i.Key.Execute());
-            Logger.Warning("Done.");
+            Logger.Warning("Run() completed");
 
             _timer = new Timer(1000);
             _timer.Elapsed += TimerElapsed;

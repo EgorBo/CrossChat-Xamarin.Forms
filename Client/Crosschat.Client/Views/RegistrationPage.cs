@@ -28,7 +28,7 @@ namespace Crosschat.Client.Views
             var header = new Label
                 {
                     Text = "Registration",
-                    Font = Font.BoldSystemFontOfSize(50),
+                    Font = Font.BoldSystemFontOfSize(44),
                     HorizontalOptions = LayoutOptions.Center
                 };
 
@@ -37,6 +37,7 @@ namespace Crosschat.Client.Views
             button.SetBinding(IsEnabledProperty, new Binding("IsBusy", converter: new InverterConverter()));
             button.SetBinding(Button.CommandProperty, new Binding("RegisterCommand"));
             button.BackgroundColor = Color.Green;
+            button.TextColor = Color.White;
 
             var nameEntry = new Entry
                 {
@@ -59,7 +60,6 @@ namespace Crosschat.Client.Views
 
             Content = new StackLayout
                 {
-                    //Padding = new Thickness(30),
                     Children =
                         {
                             header,

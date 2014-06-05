@@ -30,21 +30,18 @@ namespace Crosschat.Server.Infrastructure
                     Ip = "Any", 
                     MaxConnectionNumber = 2000,
                     Mode = SocketMode.Tcp,
-                    //ReceiveBufferSize = 1024,
-                    //SendBufferSize = 1024,
                     Name = "CrosschatSocketServer",
                     DisableSessionSnapshot = true,
                     LogAllSocketException = false,
                     LogBasicSessionActivity = false,
                     LogCommand = false, 
-                    //LogFactory = "DefaultLogFactory"
                 };
 
             var setuped = _crosschatSocketServer.Setup(config);
             var started = _crosschatSocketServer.Start();
             //Database.SetInitializer(new DropCreateDatabaseAlways<UnitOfWork>());
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UnitOfWork>());
-            var player = new UnitOfWork().Users.FirstOrDefault();
+            var user = new UnitOfWork().Users.FirstOrDefault();
             Logger.Info("Init completed {0}({1})", setuped, started);
         }
     }

@@ -46,12 +46,12 @@ namespace Crosschat.Server.Infrastructure.Transport
             Task.Run(() => Parallel.ForEach(allSessions, session => session.Value.Send(data)));
         }
 
-        public ISession FindSessionByPlayerId(int playerId)
+        public ISession FindSessionByUserId(int playerId)
         {
             return base.GetSessions(s => s.IsAuthorized && s.User.Id == playerId && s.IsOpen).Last();
         }
 
-        public void CloseSessionByPlayerId(int playerId)
+        public void CloseSessionByUserId(int playerId)
         {
             var sessions = base.GetSessions(s => s.IsAuthorized && s.User.Id == playerId && s.IsOpen).ToList();
             foreach (var session in sessions)

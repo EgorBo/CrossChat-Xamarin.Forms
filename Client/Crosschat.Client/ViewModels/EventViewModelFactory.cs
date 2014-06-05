@@ -11,7 +11,7 @@ namespace Crosschat.Client.ViewModels
 
             //TODO: create VM for other event types 
 
-            return new TextMessageViewModel(new TextMessage() { AuthorName = "a", Body = "FUCK"}, currentUserName);
+            return new EventViewModel(@event);
         }
     }
 }

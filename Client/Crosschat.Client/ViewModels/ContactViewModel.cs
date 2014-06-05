@@ -42,6 +42,7 @@ namespace Crosschat.Client.ViewModels
             get { return _photoId; }
             set { SetProperty(ref _photoId, value); }
         }
+
         public Contact Contact { get; private set; }
     }
 }

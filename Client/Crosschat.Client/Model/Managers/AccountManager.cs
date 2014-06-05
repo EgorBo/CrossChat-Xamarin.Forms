@@ -93,7 +93,7 @@ namespace Crosschat.Client.Model.Managers
         {
             await InitDeviceInfo();
             await ConnectionManager.ConnectAsync();
-            var result = await _registrationServiceProxy.RegisterNewPlayer(
+            var result = await _registrationServiceProxy.RegisterNewUser(
                 new RegistrationRequest
                 {
                     Age = age,

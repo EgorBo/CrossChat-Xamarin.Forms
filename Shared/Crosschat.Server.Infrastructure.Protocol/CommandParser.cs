@@ -66,7 +66,7 @@ namespace Crosschat.Server.Infrastructure.Protocol
         {
             var bytes = new List<byte>(BitConverter.GetBytes((int) name));
             if (bytes.Count > NameBytesCount)
-                throw new InvalidOperationException("ShitHappensException");
+                throw new InvalidOperationException();
             
             while (bytes.Count < NameBytesCount)
             {

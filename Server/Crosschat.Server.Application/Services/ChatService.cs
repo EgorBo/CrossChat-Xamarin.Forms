@@ -246,7 +246,7 @@ namespace Crosschat.Server.Application.Services
             if (response.Result == BanResponseType.Success && targetUser != null)
             {
                 //let's kick him\her from the server!
-                _sessionManager.CloseSessionByPlayerId(targetUser.Id);
+                _sessionManager.CloseSessionByUserId(targetUser.Id);
 
                 //send a notification to everybody that we've banned him\her
                 _sessionManager.SendToEachChatSessions(

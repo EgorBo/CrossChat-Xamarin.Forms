@@ -12,11 +12,11 @@ namespace Crosschat.Client.ViewModels
     {
         private readonly ApplicationManager _appManager;
         private readonly EventViewModelFactory _eventViewModelFactory;
+        private readonly IPhotoPicker _photoPicker;
         private ObservableCollection<UserViewModel> _users;
         private ObservableCollection<EventViewModel> _events;
         private string _inputText;
         private string _subject;
-        private IPhotoPicker _photoPicker;
 
         public HomeViewModel(ApplicationManager appManager)
         {
@@ -32,7 +32,7 @@ namespace Crosschat.Client.ViewModels
         {
             IsBusy = true;
             await _appManager.ChatManager.ReloadChat();
-            await _appManager.ChatManager.ReloadPlayers();
+            await _appManager.ChatManager.ReloadUsers();
             Subject = _appManager.ChatManager.Subject;
 
             _appManager.ChatManager.OnlineUsers.SynchronizeWith(Users, u => new UserViewModel(u));

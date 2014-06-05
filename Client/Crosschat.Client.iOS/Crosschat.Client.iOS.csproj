@@ -26,15 +26,15 @@
     <MtouchSdkVersion>7.1</MtouchSdkVersion>
     <MtouchProfiling>False</MtouchProfiling>
     <MtouchExtraArgs />
-    <MtouchFastDev>True</MtouchFastDev>
     <MtouchEnableGenericValueTypeSharing>True</MtouchEnableGenericValueTypeSharing>
-    <MtouchArch>Default, ARMv7</MtouchArch>
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchUseSGen>False</MtouchUseSGen>
     <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
     <MtouchI18n />
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchArch>Default, ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -126,13 +126,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="protobuf-net">
       <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\portable-sl4+net40+wp7+windows8\protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\packages.static\ServiceStack.Text\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -149,6 +144,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xamarin.Forms.1.0.6197\lib\MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="empty_contact.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.0.6197\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.0.6197\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

@@ -26,7 +26,6 @@ namespace Crosschat.Client.Model.Managers
         /// <summary>
         /// Reloads Friends collection
         /// </summary>
-        /// <returns></returns>
         public async Task ReloadFriendsAsync()
         {
             var response = await _friendsServiceProxy.GetFriends(new UserFriendsRequest());

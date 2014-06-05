@@ -142,7 +142,7 @@ namespace Crosschat.Client.Model.Proxies
         }
 
 
-		public Task<RegistrationResponse> RegisterNewPlayer(RegistrationRequest request)
+		public Task<RegistrationResponse> RegisterNewUser(RegistrationRequest request)
 		{
 			return ConnectionManager.SendRequestAndWaitResponse<RegistrationResponse>(request);
 		}

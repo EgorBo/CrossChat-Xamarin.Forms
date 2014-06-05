@@ -1,4 +1,6 @@
-﻿using Crosschat.Client.iOS.Infrastructure;
+﻿using System.IO;
+using System.Xml.Serialization;
+using Crosschat.Client.iOS.Infrastructure;
 using Crosschat.Client.Model.Contracts;
 using MonoTouch.Foundation;
 using Xamarin.Forms;
@@ -20,7 +22,8 @@ namespace Crosschat.Client.iOS.Infrastructure
 
         public void Set<T>(T obj, string key = "")
         {
-            var str = ServiceStack.Text.JsonSerializer.SerializeToString(obj);
+            key += "0";   
+            var str = SerializeToString(obj);
             _preferences.SetString(str ?? NULL, key);
         }
 
@@ -32,13 +35,36 @@ namespace Crosschat.Client.iOS.Infrastructure
 
         public T Get<T>(string key, T defaultValue = default(T))
         {
+            key += "0";
             var str = _preferences.StringForKey(key);
             if (str == NULL || string.IsNullOrEmpty(str))
             {
                 return defaultValue;
             }
-            var obj = ServiceStack.Text.JsonSerializer.DeserializeFromString<T>(str);
+            var obj = DeserializeFromString<T>(str);
             return obj;
+        }
+
+        public static string SerializeToString<T>(T toSerialize)
+        {
+            var xmlSerializer = new XmlSerializer(toSerialize.GetType());
+            var textWriter = new StringWriter();
+
+            xmlSerializer.Serialize(textWriter, toSerialize);
+            return textWriter.ToString();
+        }
+
+        public static T DeserializeFromString<T>(string objectData)
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            object result;
+
+            using (TextReader reader = new StringReader(objectData))
+            {
+                result = serializer.Deserialize(reader);
+            }
+
+            return (T)result;
         }
     }
 }

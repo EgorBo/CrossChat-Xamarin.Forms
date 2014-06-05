@@ -24,12 +24,12 @@ namespace Crosschat.Server.Application.Sessions
         /// Try to find session by associated User id
         /// </summary>
         /// <returns>null if session wasn't found</returns>
-        ISession FindSessionByPlayerId(int playerId);
+        ISession FindSessionByUserId(int playerId);
         
         /// <summary>
         /// Forcebly close session with given User id
         /// </summary>
-        void CloseSessionByPlayerId(int id);
+        void CloseSessionByUserId(int id);
 
         /// <summary>
         /// Authenticated user started session

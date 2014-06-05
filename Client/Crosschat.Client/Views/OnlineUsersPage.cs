@@ -9,8 +9,10 @@ namespace Crosschat.Client.Views
         public OnlineUsersPage(ViewModelBase viewModel) : base(viewModel)
         {
             Title = "Participants";
+            Icon = "group.png";
+
             var usersCountLabel = new Label();
-            usersCountLabel.SetBinding(Label.TextProperty, new Binding("Users.Count", stringFormat: "{0} users online."));
+            usersCountLabel.SetBinding(Label.TextProperty, new Binding("Users.Count", stringFormat: "  {0} users online."));
             
             var listView = new BindableListView
                 {

@@ -9,13 +9,13 @@ namespace Crosschat.Client.Views
     {
         public ChatPage(ViewModelBase viewModel) : base(viewModel)
         {
-
             Title = "Chat";
+            Icon = "chat.png";
 
             var headerLabel = new Label();
             headerLabel.Font = Font.BoldSystemFontOfSize(24);
-            headerLabel.TextColor = Color.Yellow;
-            headerLabel.SetBinding(Label.TextProperty, new Binding("Subject"));
+            headerLabel.TextColor = Device.OnPlatform(Color.Green, Color.Yellow, Color.Yellow);
+            headerLabel.SetBinding(Label.TextProperty, new Binding("Subject", stringFormat:"  {0}"));
 
             var sendButton = new Button();
             sendButton.Text = " Send ";
@@ -23,6 +23,7 @@ namespace Crosschat.Client.Views
             sendButton.SetBinding(Button.CommandProperty, new Binding("SendMessageCommand"));
             sendButton.BackgroundColor = Color.Green;
             sendButton.BorderColor = Color.Green;
+            sendButton.TextColor = Color.White;
 
             var inputBox = new Entry();
             inputBox.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -33,39 +34,7 @@ namespace Crosschat.Client.Views
             var messageList = new ListView();
             messageList.VerticalOptions = LayoutOptions.FillAndExpand;
             messageList.SetBinding(ChatListView.ItemsSourceProperty, new Binding("Events"));
-            messageList.ItemTemplate = new DataTemplate(() =>
-            {
-                var cell = new TextCell();
-                cell.TextColor = Color.Yellow;
-                cell.SetBinding(TextCell.TextProperty, new Binding("AuthorName", stringFormat: "{0}:"));
-                cell.SetBinding(TextCell.DetailProperty, new Binding("Text"));
-                return cell;
-
-                /*NOTE: this pretty datatemplate works incorrectly for Android
-                var timestampLabel = new Label();
-                timestampLabel.SetBinding(Label.TextProperty, new Binding("Timestamp", stringFormat: "[{0:HH:mm}]"));
-                timestampLabel.TextColor = Color.Silver;
-                timestampLabel.Font = Font.SystemFontOfSize(20);
-
-                var authorLabel = new Label();
-                authorLabel.SetBinding(Label.TextProperty, new Binding("AuthorName", stringFormat: "{0}: "));
-                authorLabel.TextColor = Color.Yellow;
-                authorLabel.Font = Font.SystemFontOfSize(20);
-
-                var messageLabel = new Label();
-                messageLabel.SetBinding(Label.TextProperty, new Binding("Text"));
-                messageLabel.Font = Font.SystemFontOfSize(20);
-
-                var view = new ViewCell
-                    {
-                        View = new StackLayout
-                            {
-                                Orientation = StackOrientation.Horizontal,
-                                Children = { timestampLabel, authorLabel, messageLabel }
-                            }
-                    };
-                return view;*/
-            });
+            messageList.ItemTemplate = new DataTemplate(CreateMessageCell);
             
             Content = new StackLayout
                 {
@@ -81,6 +50,53 @@ namespace Crosschat.Client.Views
                             messageList,
                         }
                 };
+        }
+
+        private Cell CreateMessageCell()
+        {
+            if (Device.OS != TargetPlatform.WinPhone)
+            {             
+                
+                var cell = new TextCell();
+                cell.TextColor = Device.OnPlatform(Color.Gray, Color.Yellow, Color.Yellow);
+                cell.DetailColor = Device.OnPlatform(Color.Black, Color.White, Color.White);
+                cell.SetBinding(TextCell.TextProperty, new Binding("AuthorName", stringFormat: "{0}:"));
+                cell.SetBinding(TextCell.DetailProperty, new Binding("Text"));
+                return cell;
+            }
+
+            //NOTE: the following template doesn't work for android ;(
+
+            var timestampLabel = new Label();
+            timestampLabel.SetBinding(Label.TextProperty, new Binding("Timestamp", stringFormat: "[{0:HH:mm}]"));
+            timestampLabel.TextColor = Color.Silver;
+            timestampLabel.Font = Font.SystemFontOfSize(14);
+
+            var authorLabel = new Label();
+            authorLabel.SetBinding(Label.TextProperty, new Binding("AuthorName", stringFormat: "{0}: "));
+            authorLabel.TextColor = Device.OnPlatform(Color.Blue, Color.Yellow, Color.Yellow);
+            authorLabel.Font = Font.SystemFontOfSize(14);
+
+            var messageLabel = new Label();
+            messageLabel.SetBinding(Label.TextProperty, new Binding("Text"));
+            messageLabel.Font = Font.SystemFontOfSize(14);
+
+            var stack = new StackLayout
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    Children = {authorLabel, messageLabel}
+                };
+
+            if (Device.Idiom == TargetIdiom.Tablet)
+            {
+                stack.Children.Insert(0, timestampLabel);
+            }
+
+            var view = new ViewCell
+                {
+                    View = stack
+                };
+            return view;
         }
     }
 }

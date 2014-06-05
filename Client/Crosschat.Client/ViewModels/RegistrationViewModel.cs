@@ -79,11 +79,6 @@ namespace Crosschat.Client.ViewModels
             get { return new[] {"Male", "Female"}; }
         }
 
-        protected override void OnShown()
-        {
-            base.OnShown();
-        }
-
         private async void OnRegister()
         {
             if (string.IsNullOrEmpty(Name) || 

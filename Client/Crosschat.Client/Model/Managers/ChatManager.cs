@@ -47,21 +47,21 @@ namespace Crosschat.Client.Model.Managers
         /// <summary>
         /// Reloads only online players
         /// </summary>
-        public async Task ReloadPlayers()
+        public async Task ReloadUsers()
         {
             var chatStatus = await _chatServiceProxy.GetOnlineUsers(new GetOnlineUsersRequest());
             OnlineUsers.Clear();
             if (chatStatus.Users != null)
             {
-                //OnlineUsers.AddRange(chatStatus.Users);
+                OnlineUsers.AddRange(chatStatus.Users);
             }
 
             //for screenshots ;)
-            OnlineUsers.Add(new UserDto { Name = "Tim Cook", Country = "United States", Platform = "iOS" });
+            /*OnlineUsers.Add(new UserDto { Name = "Tim Cook", Country = "United States", Platform = "iOS" });
             OnlineUsers.Add(new UserDto { Name = "Eric Schmidt", Country = "United States", Platform = "Android" });
             OnlineUsers.Add(new UserDto { Name = "Satya Nadella", Country = "United States", Platform = "WP8" });
             OnlineUsers.Add(new UserDto { Name = "Miguel de Icaza", Country = "United States", Platform = "iOS" });
-            OnlineUsers.Add(new UserDto { Name = "Egor Bogatov", Country = "Belarus", Platform = "Nokia 3310" });
+            OnlineUsers.Add(new UserDto { Name = "Egor Bogatov", Country = "Belarus", Platform = "Nokia 3310" });*/
         }
 
         /// <summary>
@@ -114,8 +114,7 @@ namespace Crosschat.Client.Model.Managers
         /// </summary>
         public void SendMessage(string message)
         {
-            Messages.Add(new TextMessage { AuthorName =  "AAA", Body = message});
-            //_chatServiceProxy.PublicMessage(new PublicMessageRequest { Body = message });
+            _chatServiceProxy.PublicMessage(new PublicMessageRequest { Body = message });
         }
 
         public Task SendImage(byte[] image)
