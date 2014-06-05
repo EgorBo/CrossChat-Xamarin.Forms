@@ -92,7 +92,7 @@ namespace Crosschat.Client.Views
                 stack.Children.Insert(0, timestampLabel);
             }
 
-            var view = new ViewCell
+            var view = new MessageViewCell
                 {
                     View = stack
                 };
