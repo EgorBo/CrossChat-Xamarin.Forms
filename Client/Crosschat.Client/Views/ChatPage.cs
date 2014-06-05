@@ -31,7 +31,7 @@ namespace Crosschat.Client.Views
             inputBox.Placeholder = "Type a message...";
             inputBox.SetBinding(Entry.TextProperty, new Binding("InputText", BindingMode.TwoWay));
 
-            var messageList = new ListView();
+            var messageList = new ChatListView();
             messageList.VerticalOptions = LayoutOptions.FillAndExpand;
             messageList.SetBinding(ChatListView.ItemsSourceProperty, new Binding("Events"));
             messageList.ItemTemplate = new DataTemplate(CreateMessageCell);
