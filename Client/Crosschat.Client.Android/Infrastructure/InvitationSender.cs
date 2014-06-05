@@ -13,19 +13,16 @@ namespace Crosschat.Client.Droid.Infrastructure
     {
         public void Send(Contact contact)
         {
-            if (!string.IsNullOrEmpty(contact.Email))
-            {
-                var email = new Intent(Intent.ActionSend);
-                email.PutExtra(Intent.ExtraEmail, new[] { contact.Email });
-                email.PutExtra(Intent.ExtraSubject, "Hey, join me in CrossChat!");
-                email.PutExtra(Intent.ExtraText, "Check this out: https://github.com/EgorBo/CrossChat-Xamarin.Forms");
-                email.SetType("message/rfc822");
-                Forms.Context.StartActivity(email);
-            }
-            else
-            {
-                SmsManager.Default.SendTextMessage(contact.Number, null, "Check this out: https://github.com/EgorBo/CrossChat-Xamarin.Forms", null, null);
-            }
+            //if (!string.IsNullOrEmpty(contact.Email))
+            //{
+            //    var email = new Intent(Intent.ActionSend);
+            //    email.PutExtra(Intent.ExtraEmail, new[] { contact.Email });
+            //    email.PutExtra(Intent.ExtraSubject, "Hey, join me in CrossChat!");
+            //    email.PutExtra(Intent.ExtraText, "Check this out: https://github.com/EgorBo/CrossChat-Xamarin.Forms");
+            //    email.SetType("message/rfc822");
+            //    Forms.Context.StartActivity(email);
+            //}
+            SmsManager.Default.SendTextMessage(contact.Number, null, "Check this out: https://github.com/EgorBo/CrossChat-Xamarin.Forms", null, null);
         }
     }
 }

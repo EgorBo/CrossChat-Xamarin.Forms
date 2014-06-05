@@ -28,7 +28,7 @@ namespace Crosschat.Client.Views
                                         ImageSource.FromFile("Assets/empty_contact.jpg")),
                                 };
                             imageCell.SetBinding(TextCell.TextProperty, new Binding("Name"));
-                            imageCell.SetBinding(TextCell.DetailProperty, new Binding("Name"));
+                            imageCell.SetBinding(TextCell.DetailProperty, new Binding("Number"));
                             return imageCell;
                         }),
                     IsGroupingEnabled = true,

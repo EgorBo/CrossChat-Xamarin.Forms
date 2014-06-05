@@ -22,7 +22,19 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <MtouchDebug>true</MtouchDebug>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchSdkVersion>7.1</MtouchSdkVersion>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchExtraArgs />
+    <MtouchFastDev>True</MtouchFastDev>
+    <MtouchEnableGenericValueTypeSharing>True</MtouchEnableGenericValueTypeSharing>
+    <MtouchArch>Default, ARMv7</MtouchArch>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
+    <MtouchI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -74,7 +86,22 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ContactsRepository.cs" />
+    <Compile Include="Infrastructure\ContactsRepository.cs" />
+    <Compile Include="Infrastructure\DeviceInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\InvitationSender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\ProtobufDtoSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Storage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\TransportResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
@@ -82,6 +109,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Crosschat.Server.Application.DataTransferObjects\Crosschat.Server.Application.DataTransferObjects.csproj">
+      <Project>{5b665c38-2c1f-4b21-947b-ed54e5c4abbc}</Project>
+      <Name>Crosschat.Server.Application.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Crosschat.Server.Infrastructure.Protocol\Crosschat.Server.Infrastructure.Protocol.csproj">
+      <Project>{5763956e-f7e1-4dd4-91b9-1f4438961311}</Project>
+      <Name>Crosschat.Server.Infrastructure.Protocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Crosschat.Utils\Crosschat.Utils.csproj">
+      <Project>{3b0cea1f-3936-4bb0-9889-d7c14617fd6d}</Project>
+      <Name>Crosschat.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Crosschat.Client\Crosschat.Client.csproj">
       <Name>Crosschat.Client</Name>
     </ProjectReference>
@@ -89,6 +128,12 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\portable-sl4+net40+wp7+windows8\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\packages.static\ServiceStack.Text\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />

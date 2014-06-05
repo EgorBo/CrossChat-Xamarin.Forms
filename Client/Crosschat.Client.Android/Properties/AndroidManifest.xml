@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="CrossChat">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="CrossChat.CrossChat">
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19" />
 	<application android:label="CrossChat" android:icon="@drawable/Icon"></application>
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<uses-permission android:name="android.permission.SEND_SMS" />
 </manifest>

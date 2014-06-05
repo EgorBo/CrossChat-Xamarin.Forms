@@ -33,7 +33,7 @@ namespace Crosschat.Client.Views
                         }
                 };
 
-            ToolbarItems.Add(new ToolbarItem("invite", Device.OnPlatform(null, null, "appbar.user.add.png"), 
+            ToolbarItems.Add(new ToolbarItem("invite", Device.OnPlatform(null, null, "appbar.user.add.png"),
                 () => Navigation.PushAsync(new InviteToAppPage(new InviteToAppViewModel()))));
 
             //NOTE: this button is a workaround, adding button on HomePage doesn't work so it will be presented always
