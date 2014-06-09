@@ -87,7 +87,10 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\message_item.axml" />
+    <AndroidResource Include="Resources\layout\message_item_opponent.axml" />
+    <AndroidResource Include="Resources\layout\message_item_owner.axml" />
+    <AndroidResource Include="Resources\layout\image_item_opponent.axml" />
+    <AndroidResource Include="Resources\layout\image_item_owner.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\Icon.png" />
@@ -95,6 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Drawable\bubble_green.9.png" />
+    <AndroidResource Include="Resources\Drawable\bubble_yellow.9.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Crosschat.Server.Application.DataTransferObjects\Crosschat.Server.Application.DataTransferObjects.csproj">

@@ -91,6 +91,7 @@
     <Compile Include="Views\Controls\MessageViewCell.cs" />
     <Compile Include="Views\OnlineUsersPage.cs" />
     <Compile Include="Views\RegistrationPage.cs" />
+    <Compile Include="Views\SettingsPage.cs" />
     <Compile Include="Views\SplashscreenPage.cs" />
     <Compile Include="Views\ValueConverters\InverterConverter.cs" />
   </ItemGroup>

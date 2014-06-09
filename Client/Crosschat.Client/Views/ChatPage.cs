@@ -54,7 +54,7 @@ namespace Crosschat.Client.Views
 
         private Cell CreateMessageCell()
         {
-            if (Device.OS != TargetPlatform.WinPhone)
+            if (Device.OS == TargetPlatform.iOS)
             {             
                 
                 var cell = new TextCell();
@@ -64,8 +64,6 @@ namespace Crosschat.Client.Views
                 cell.SetBinding(TextCell.DetailProperty, new Binding("Text"));
                 return cell;
             }
-
-            //NOTE: the following template doesn't work for android ;(
 
             var timestampLabel = new Label();
             timestampLabel.SetBinding(Label.TextProperty, new Binding("Timestamp", stringFormat: "[{0:HH:mm}]"));

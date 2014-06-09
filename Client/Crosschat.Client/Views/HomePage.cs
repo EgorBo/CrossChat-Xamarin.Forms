@@ -9,6 +9,7 @@ namespace Crosschat.Client.Views
         {
             Children.Add(new ChatPage(viewModel));
             Children.Add(new OnlineUsersPage(viewModel));
+            Children.Add(new SettingsPage(viewModel));
         }
     }
 }
