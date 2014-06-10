@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Crosschat.Client.iOS;
-using Crosschat.Client.Model;
+using Crosschat.Client.iOS.Infrastructure;
 using Crosschat.Client.Model.Contracts;
 using Crosschat.Client.Model.Entities;
 using MonoTouch.AddressBook;
@@ -11,7 +9,7 @@ using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ContactsRepository))]
 
-namespace Crosschat.Client.iOS
+namespace Crosschat.Client.iOS.Infrastructure
 {
     public class ContactsRepository : IContactsRepository
     {
@@ -33,7 +31,7 @@ namespace Crosschat.Client.iOS
                 {
                     if (error != null)
                     {
-                        // process error
+                        taskCompletionSource.TrySetResult(new Contact[0]);
                     }
                     else if (granted)
                     {

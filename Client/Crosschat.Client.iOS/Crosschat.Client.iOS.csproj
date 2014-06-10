@@ -86,6 +86,7 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\MessageRenderer.cs" />
     <Compile Include="Infrastructure\ContactsRepository.cs" />
     <Compile Include="Infrastructure\DeviceInfo.cs">
       <SubType>Code</SubType>

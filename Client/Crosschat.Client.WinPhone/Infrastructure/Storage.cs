@@ -12,7 +12,6 @@ namespace Crosschat.Client.WinPhone.Infrastructure
     {
         public void Set<T>(T obj, string key = "")
         {
-            key += "31";
             IsolatedStorageSettings.ApplicationSettings[key] = obj;
             IsolatedStorageSettings.ApplicationSettings.Save();
         }
@@ -25,7 +24,6 @@ namespace Crosschat.Client.WinPhone.Infrastructure
 
         public T Get<T>(string key, T defaultValue = default(T))
         {
-            key += "31";
             object value = defaultValue;
             IsolatedStorageSettings.ApplicationSettings.TryGetValue(key, out value);
             return value is T ? (T)value : defaultValue;
