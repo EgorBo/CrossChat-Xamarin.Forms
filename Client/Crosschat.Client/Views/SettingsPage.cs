@@ -9,6 +9,7 @@ namespace Crosschat.Client.Views
         public SettingsPage(ViewModelBase viewModel) : base(viewModel)
         {
             Title = "Settings";
+            Icon = "settings.png";
 
             var inviteButton = new Button();
             inviteButton.Text = "Invite contacts";

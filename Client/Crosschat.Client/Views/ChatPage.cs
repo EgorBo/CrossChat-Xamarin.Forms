@@ -54,17 +54,6 @@ namespace Crosschat.Client.Views
 
         private Cell CreateMessageCell()
         {
-            if (Device.OS == TargetPlatform.iOS)
-            {             
-                
-                var cell = new TextCell();
-                cell.TextColor = Device.OnPlatform(Color.Gray, Color.Yellow, Color.Yellow);
-                cell.DetailColor = Device.OnPlatform(Color.Black, Color.White, Color.White);
-                cell.SetBinding(TextCell.TextProperty, new Binding("AuthorName", stringFormat: "{0}:"));
-                cell.SetBinding(TextCell.DetailProperty, new Binding("Text"));
-                return cell;
-            }
-
             var timestampLabel = new Label();
             timestampLabel.SetBinding(Label.TextProperty, new Binding("Timestamp", stringFormat: "[{0:HH:mm}]"));
             timestampLabel.TextColor = Color.Silver;

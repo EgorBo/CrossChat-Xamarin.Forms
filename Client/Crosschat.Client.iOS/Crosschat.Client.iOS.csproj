@@ -33,7 +33,7 @@
     <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
     <MtouchI18n />
-    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchFastDev>True</MtouchFastDev>
     <MtouchArch>Default, ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -86,6 +86,9 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\BubbleCell.cs" />
+    <Compile Include="CustomRenderers\ChatBubble.cs" />
+    <Compile Include="CustomRenderers\ChatListViewRenderer.cs" />
     <Compile Include="CustomRenderers\MessageRenderer.cs" />
     <Compile Include="Infrastructure\ContactsRepository.cs" />
     <Compile Include="Infrastructure\DeviceInfo.cs">
@@ -127,6 +130,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="protobuf-net">
       <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\portable-sl4+net40+wp7+windows8\protobuf-net.dll</HintPath>
     </Reference>
@@ -154,6 +158,13 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="empty_contact.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="grey.png" />
+    <BundleResource Include="settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.0.6197\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.0.6197\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
