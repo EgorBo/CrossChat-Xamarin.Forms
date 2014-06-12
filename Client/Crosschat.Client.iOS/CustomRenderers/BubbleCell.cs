@@ -1,3 +1,12 @@
+//
+// Bubble.cs: Provides both a UITableViewCell that can be used with UITableViews
+// as well as a ChatBubble which is a MonoTouch.Dialog Element that can be used
+// inside a DialogViewController for quick UIs.
+//
+// Author:
+//   Miguel de Icaza
+//
+
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;

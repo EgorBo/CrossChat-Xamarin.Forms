@@ -18,11 +18,11 @@ namespace Crosschat.Client.iOS.CustomRenderers
     /// </summary>
     public class ChatListViewRenderer : ListViewRenderer
     {
-        protected override void OnModelSet(VisualElement view)
+        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
         {
-            base.OnModelSet(view);
-            var table = (UITableView) this.Control;
-            table.SeparatorStyle= UITableViewCellSeparatorStyle.None;
+            base.OnElementChanged(e);
+            var table = (UITableView)this.Control;
+            table.SeparatorStyle = UITableViewCellSeparatorStyle.None;
             table.Source = new ListViewDataSourceWrapper(this.GetFieldValue<UITableViewSource>(typeof(ListViewRenderer), "dataSource"));
         }
     }

@@ -11,15 +11,15 @@ namespace Crosschat.Client.WinPhone.CustomRenderers
 {
     public class ChatListRenderer : ListViewRenderer
     {
-        protected override void OnModelSet()
+        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
         {
-            base.OnModelSet();
+            base.OnElementChanged(e);
             var control = Control;
             if (control != null && control.ItemsSource is INotifyCollectionChanged)
             {
                 //auto-scroll on ItemsSource change
-                ((INotifyCollectionChanged) control.ItemsSource).CollectionChanged += (sender, args) => 
-                    Dispatcher.BeginInvoke(()=> control.ScrollTo(control.ItemsSource.OfType<object>().FirstOrDefault()));
+                ((INotifyCollectionChanged)control.ItemsSource).CollectionChanged += (sender, args) =>
+                    Dispatcher.BeginInvoke(() => control.ScrollTo(control.ItemsSource.OfType<object>().FirstOrDefault()));
             }
         }
     }
