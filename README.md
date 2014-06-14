@@ -8,7 +8,7 @@ Server side is built using **DDD** approach, data is stored in SQL using Entity 
 Client side is built using amazing **Xamarin.Forms** with MVVM approach.
 
 
-![Alt text](http://habrastorage.org/files/845/192/1d1/8451921d1eb741768f09dbec3d56f6ff.png)
+![Alt text](http://habrastorage.org/files/f32/924/35d/f3292435d5ef4210b301bfdc50bff13c.png)
 
 ![Alt text](http://habrastorage.org/files/5df/7ca/a3c/5df7caa3cf244cbb856d4bd074395a7b.png)
 
