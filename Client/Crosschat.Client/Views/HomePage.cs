@@ -1,5 +1,6 @@
 ﻿using Crosschat.Client.Seedwork;
 using Crosschat.Client.Seedwork.Controls;
+using Xamarin.Forms;
 
 namespace Crosschat.Client.Views
 {

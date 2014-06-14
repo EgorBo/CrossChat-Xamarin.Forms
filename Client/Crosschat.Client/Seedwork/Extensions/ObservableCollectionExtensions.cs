@@ -44,9 +44,13 @@ namespace Crosschat.Client.Seedwork.Extensions
             source.ForEach(item => destination.Add(creator(item)));
             source.CollectionChanged += (s, e) =>
             {
-                if (e.Action == NotifyCollectionChangedAction.Add)
+                if (e.Action == NotifyCollectionChangedAction.Add && e.NewItems != null)
                 {
-                    e.NewItems.OfType<T>().ForEach(item => destination.Insert(0, creator(item)));
+                    foreach (var item in e.NewItems.OfType<T>())
+                    {
+                        var projection = creator(item);
+                        destination.Insert(0, projection);
+                    }
                 }
                 if (e.Action == NotifyCollectionChangedAction.Remove && sourceKey != null && destKey != null)
                 {

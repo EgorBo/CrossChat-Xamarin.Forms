@@ -28,7 +28,7 @@ namespace Crosschat.Client.Views
             var header = new Label
                 {
                     Text = "Registration",
-                    Font = Font.BoldSystemFontOfSize(44),
+                    Font = Font.BoldSystemFontOfSize(36),
                     HorizontalOptions = LayoutOptions.Center
                 };
 

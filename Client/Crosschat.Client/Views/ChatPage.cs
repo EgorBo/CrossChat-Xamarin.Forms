@@ -21,14 +21,18 @@ namespace Crosschat.Client.Views
             sendButton.Text = " Send ";
             sendButton.VerticalOptions = LayoutOptions.EndAndExpand;
             sendButton.SetBinding(Button.CommandProperty, new Binding("SendMessageCommand"));
-            sendButton.BackgroundColor = Color.Green;
-            sendButton.BorderColor = Color.Green;
-            sendButton.TextColor = Color.White;
+            if (Device.OS == TargetPlatform.WinPhone)
+            {
+                sendButton.BackgroundColor = Color.Green;
+                sendButton.BorderColor = Color.Green;
+                sendButton.TextColor = Color.White; 
+            }
 
             var inputBox = new Entry();
             inputBox.HorizontalOptions = LayoutOptions.FillAndExpand;
             inputBox.Keyboard = Keyboard.Chat;
             inputBox.Placeholder = "Type a message...";
+            inputBox.HeightRequest = 30;
             inputBox.SetBinding(Entry.TextProperty, new Binding("InputText", BindingMode.TwoWay));
 
             var messageList = new ChatListView();
@@ -38,6 +42,7 @@ namespace Crosschat.Client.Views
             
             Content = new StackLayout
                 {
+                    Padding = Device.OnPlatform(new Thickness(6,6,6,6), new Thickness(0), new Thickness(0)),
                     Children =
                         {
                             new StackLayout
@@ -46,7 +51,7 @@ namespace Crosschat.Client.Views
                                     Orientation = StackOrientation.Horizontal,
                                     Padding = new Thickness(0, Device.OnPlatform(0, 20, 0),0,0),
                                 },
-                            headerLabel,
+                            //headerLabel,
                             messageList,
                         }
                 };

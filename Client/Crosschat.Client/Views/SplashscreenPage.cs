@@ -15,6 +15,8 @@ namespace Crosschat.Client.Views
 
         public SplashscreenPage()
         {
+            Title = "";
+
             Content = new StackLayout
                 {
                     VerticalOptions = LayoutOptions.Center,
@@ -53,7 +55,6 @@ namespace Crosschat.Client.Views
 
             // Accomodate iPhone status bar.
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
-            this.Title = "Cross Chat";
         }
 
         protected override async void OnAppearing()
