@@ -13,6 +13,10 @@ Client side is built using amazing **Xamarin.Forms** with MVVM approach.
 ![Alt text](http://habrastorage.org/files/5df/7ca/a3c/5df7caa3cf244cbb856d4bd074395a7b.png)
 
 
+**Video:**
+
+[![alt text](http://img.youtube.com/vi/b_M1hl9G0nQ/0.jpg)](http://www.youtube.com/watch?v=b_M1hl9G0nQ)
+
 Authors
 -------
 
