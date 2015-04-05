@@ -59,11 +59,5 @@ namespace Crosschat.Client.Droid.CustomRenderers
             }
             return imageBitmap;
         }
-
-
-        protected override void OnCellPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            base.OnCellPropertyChanged(sender, e);
-        }
     }
 }
