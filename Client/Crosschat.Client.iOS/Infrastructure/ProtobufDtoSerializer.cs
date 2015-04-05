@@ -20,7 +20,7 @@ namespace Crosschat.Client.iOS.Infrastructure
             var publicTypes = typeof(UserDto).Assembly.GetTypes().Where(i => i.IsPublic).ToList();
             foreach (var type in publicTypes)
             {
-                var properties = type.GetProperties().Select(p => p.Name).OrderBy(name => name);
+                var properties = type.GetProperties().Where(p => p.CanRead && p.CanWrite).Select(p => p.Name).OrderBy(name => name);
                 var subClasses = publicTypes.Where(t => t.IsSubclassOf(type)).ToList();
 
                 var meta = _protobufModel.Add(type, true).Add(properties.ToArray());

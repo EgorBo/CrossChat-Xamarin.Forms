@@ -20,7 +20,7 @@ namespace Crosschat.Server.Application.DataTransferObjects.Utils
                 if (_tasks.TryGetValue(response.Token, out task))
                 {
                     _tasks.Remove(response.Token);
-                    response.RequestResult = true;
+                    response.Error = CommonErrors.Success;
                     task.TrySetResult(response);
                 }
             }
@@ -52,7 +52,7 @@ namespace Crosschat.Server.Application.DataTransferObjects.Utils
                 if (_tasks.ContainsKey(token))
                 {
                     _tasks.Remove(token);
-                    taskSource.TrySetResult(new ResponseBase {RequestResult = false});
+                    taskSource.TrySetResult(new ResponseBase {Error = CommonErrors.Timeout});
                 }
             }
         }
