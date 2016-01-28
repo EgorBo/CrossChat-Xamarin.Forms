@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Crosschat.Server.Application.Seedwork;
+using Crosschat.Server.Domain.Entities;
+using Crosschat.Server.Domain.Seedwork.Specifications;
+using Crosschat.Server.Infrastructure.Persistence.EF;
 using Crosschat.Server.Infrastructure.Transport;
 using Crosschat.Utils.Logging;
 
@@ -15,6 +20,7 @@ namespace Crosschat.Server.ConsoleHost
             TaskScheduler.UnobservedTaskException += TaskScheduler_OnUnobservedTaskException;
             Console.WriteLine("Bootstrapper is ran.");
             string command = "";
+
             while (command != "exit")
             {
                 if (command == "stat") //show statistics

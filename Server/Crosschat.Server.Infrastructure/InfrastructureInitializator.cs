@@ -40,7 +40,7 @@ namespace Crosschat.Server.Infrastructure
             var setuped = _crosschatSocketServer.Setup(config);
             var started = _crosschatSocketServer.Start();
             //Database.SetInitializer(new DropCreateDatabaseAlways<UnitOfWork>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UnitOfWork>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<UnitOfWork>());
             var user = new UnitOfWork().Users.FirstOrDefault();
             Logger.Info("Init completed {0}({1})", setuped, started);
         }

@@ -19,7 +19,7 @@ namespace Crosschat.Client.Seedwork.Controls
         }
 
         public static BindableProperty ScrollableItemsSourceProperty =
-            BindableProperty.Create<BindableListView, IEnumerable>(o => o.ScrollableItemsSource, default(IEnumerable), bindingPropertyChanged: OnItemsSourceChanged);
+            BindableProperty.Create<BindableListView, IEnumerable>(o => o.ScrollableItemsSource, default(IEnumerable), propertyChanged: OnItemsSourceChanged);
 
         private static void OnItemsSourceChanged(BindableObject bindable, IEnumerable oldvalue, IEnumerable newvalue)
         {

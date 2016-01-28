@@ -17,7 +17,7 @@ namespace Crosschat.Server.Infrastructure.Serialization
             var publicTypes = Assembly.GetAssembly(typeof (UserDto)).GetTypes().Where(i => i.IsPublic).ToList();
             foreach (var type in publicTypes)
             {
-                var properties = type.GetProperties().Select(p => p.Name).OrderBy(name => name);
+                var properties = type.GetProperties().Where(p => p.CanRead && p.CanWrite).Select(p => p.Name).OrderBy(name => name);
                 var subClasses = publicTypes.Where(t => t.IsSubclassOf(type)).ToList();
                 
                 var meta = ProtobufModel.Add(type, true).Add(properties.ToArray());
